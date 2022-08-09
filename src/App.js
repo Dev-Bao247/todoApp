@@ -30,15 +30,12 @@ function App(){
       return((arr.id===textElem.id )  
         ?(arr={id:textElem.id, title:test})
         :(arr={id:arr.id, title:arr.title}))
-      }
-      )
+      })
       setArrs(updateText)
       setEdit(0)
       setValues("")
       return;
     }
-  
-  
   }
 
  
@@ -47,28 +44,24 @@ function App(){
       <h1 className="name">To-Do List</h1>
       <div  className="wraper-handel">
 
-        <input placeholder="Your Job ...." value={values} onChange={(e)=>{setValues(e.target.value)
-          setTest(e.target.value)}}/>
+        <input placeholder="Your Job ...." value={values} onChange={(e)=>{setValues(e.target.value) setTest(e.target.value)}}/>
         <button className="btn-add" onClick={handelAdd} >ADD</button>
         <button className="btn-add" onClick={handelUpdate} >UpDate</button>
 
         <ul className="list-value">
-
           {arrs.map((arr,index)=>(
           <li className="list-value__li" key={index} >
               <span>{index+1}</span>
               {arr.title}
-              <div>
 
-        {/* handel remove */}
+              <div>
               <button onClick={()=>{
                 const newL=arrs.filter((item)=>(item.id != arr.id))
-                setArrs(newL)
-                
+                setArrs(newL) 
               }} className="btn-remove">X</button>
-
               <button onClick={()=>handelEdit(arr.id)}>edit </button>
-               </div></li>),
+               </div>
+         </li>)
           )}</ul>
       </div>
    </div>
